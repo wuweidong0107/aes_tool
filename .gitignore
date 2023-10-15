@@ -1,2 +1,5 @@
 /test.dec
 /test.enc
+*.o
+*.o.d
+/aes_tool

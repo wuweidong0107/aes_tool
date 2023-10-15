@@ -66,6 +66,7 @@ int main(int argc, char **argv)
         while ((ret = fread(plain_data, 1, AES_CHUNK_BYTES, fp_plain))) {
             hexdump("plain", plain_data, ret);
             AES_encrypt(plain_data, encrypt_data, &key);
+            memset(plain_data, 0, AES_CHUNK_BYTES);
 
             hexdump("encry", encrypt_data, AES_CHUNK_BYTES);
             fwrite(encrypt_data, 1, AES_CHUNK_BYTES, fp_encrypt);
